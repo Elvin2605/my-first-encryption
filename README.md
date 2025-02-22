@@ -1,36 +1,149 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Here’s a polished and professional README for your PGP encryption tool. It explains the purpose, setup, and usage of your tool in a clear and engaging way. You can copy and paste this into your repository's `README.md` file.
+
+---
+
+# PGP Encryption Tool
+
+A modern, web-based tool for generating PGP keys, encrypting, and decrypting messages using the **Web Crypto API**. This repository demonstrates the concept of PGP encryption, where public and private keys are used to securely encrypt and decrypt messages.
+
+Whether you're learning about PGP encryption or building a secure messaging system, this tool provides a simple and practical implementation.
+
+---
+
+## Features
+
+- **Key Generation**: Generate PGP-compatible public and private keys using the Web Crypto API.
+- **Message Encryption**: Encrypt messages using a recipient's public key.
+- **Message Decryption**: Decrypt messages using your private key.
+- **Easy-to-Use**: Clean and modular codebase with clear examples.
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js (v16 or higher)
+- npm (Node Package Manager)
+
+### Installation
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-username/pgp-encryption-tool.git
+   cd pgp-encryption-tool
+   ```
+
+2. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Run the Application**:
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:3000` to access the tool.
+
+---
+
+## How It Works
+
+### Key Generation
+The tool uses the **Web Crypto API** to generate RSA key pairs (public and private keys). These keys are stored securely and can be used for PGP encryption and decryption.
+
+### Encryption
+To encrypt a message:
+1. Provide the recipient's public key.
+2. Enter the message you want to encrypt.
+3. The tool will output the encrypted message in ASCII-armored format.
+
+### Decryption
+To decrypt a message:
+1. Provide your private key.
+2. Enter the encrypted message.
+3. The tool will decrypt the message and display the original content.
+
+---
+
+## Code Structure
+
+- **`lib/`**: Contains utility functions for key generation, encryption, and decryption.
+  - `utils.js`: Core logic for handling keys and PGP operations.
+- **`pages/`**: Contains API routes and pages for the tool.
+  - `api/`: API endpoints for key generation, encryption, and decryption.
+  - `index.js`: Main page for the tool.
+- **`components/`**: React components for the user interface.
+  - `KeyGeneration.js`: Component for generating PGP keys.
+  - `PGPExample.js`: Component for encrypting and decrypting messages.
+
+---
+
+## Usage Examples
+
+### Generating Keys
+```javascript
+import { generateKeyPair } from '../lib/utils';
+
+const { publicKey, privateKey } = await generateKeyPair();
+console.log('Public Key:', publicKey);
+console.log('Private Key:', privateKey);
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Encrypting a Message
+```javascript
+import { encryptMessage } from '../lib/utils';
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+const encryptedMessage = await encryptMessage('Hello, World!', publicKey);
+console.log('Encrypted Message:', encryptedMessage);
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Decrypting a Message
+```javascript
+import { decryptMessage } from '../lib/utils';
 
-## Learn More
+const decryptedMessage = await decryptMessage(encryptedMessage, privateKey);
+console.log('Decrypted Message:', decryptedMessage);
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Why Use This Tool?
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Educational**: Learn how PGP encryption works under the hood.
+- **Practical**: Use it as a starting point for building secure messaging systems.
+- **Modern**: Built with the Web Crypto API, ensuring compatibility with modern browsers.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contributions are welcome! If you'd like to improve this tool, follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeatureName`).
+3. Commit your changes (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature/YourFeatureName`).
+5. Open a pull request.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Acknowledgments
+
+- [Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API) for providing the cryptographic primitives.
+- [OpenPGP.js](https://openpgpjs.org/) for inspiration on PGP implementation.
+
+---
+
+Enjoy exploring PGP encryption! If you have any questions or feedback, feel free to open an issue or reach out.
+
+---
+
+This README is designed to be clear, informative, and engaging. It highlights the purpose of your tool, provides step-by-step instructions, and encourages contributions. You can customize it further to match your repository's specifics.
