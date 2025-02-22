@@ -1,7 +1,3 @@
-Here’s a polished and professional README for your PGP encryption tool. It explains the purpose, setup, and usage of your tool in a clear and engaging way. You can copy and paste this into your repository's `README.md` file.
-
----
-
 # PGP Encryption Tool
 
 A modern, web-based tool for generating PGP keys, encrypting, and decrypting messages using the **Web Crypto API**. This repository demonstrates the concept of PGP encryption, where public and private keys are used to securely encrypt and decrypt messages.
