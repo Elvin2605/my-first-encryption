@@ -139,7 +139,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ---
 
 Enjoy exploring PGP encryption! If you have any questions or feedback, feel free to open an issue or reach out.
-
----
-
-This README is designed to be clear, informative, and engaging. It highlights the purpose of your tool, provides step-by-step instructions, and encourages contributions. You can customize it further to match your repository's specifics.
