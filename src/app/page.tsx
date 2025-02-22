@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Web Crypto API + PGP Example</h1>
+      <h1 className='text-3xl font-bold flex justify-center items-center'>KeyedIn</h1>
       <CryptoExample
         onKeysGenerated={(publicKey, privateKey) => {
           setPublicKey(publicKey);

@@ -1,6 +1,6 @@
 // pages/api/crypto.tsx
 
-import { generateKeyPair, exportPublicKey, exportPrivateKey } from '../../../lib/cryptoUtils';
+import { generateKeyPair } from '../../../lib/cryptoUtils';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 type Data = {
@@ -15,13 +15,11 @@ export default async function handler(
 ) {
   if (req.method === 'GET') {
     try {
-      const keyPair = await generateKeyPair();
-      const publicKey = await exportPublicKey(keyPair);
-      const privateKey = await exportPrivateKey(keyPair);
-
+      const { publicKey, privateKey } = await generateKeyPair();
       res.status(200).json({ publicKey, privateKey });
-    } catch (error) {
-      res.status(500).json({ error: 'Failed to generate keys' });
+    } catch (error: any) {
+      console.error('Error generating keys:', error);
+      res.status(500).json({ error: error.message || 'Failed to generate keys' });
     }
   } else {
     res.status(405).json({ error: 'Method not allowed' });
